@@ -20,6 +20,7 @@ public class OptimizedUF {
             root[i] = i;
             rank[i] = 1;
         }
+        count = n; // number of components
      }
 
      int find(int node){
@@ -43,10 +44,15 @@ public class OptimizedUF {
             root[rootQ] = rootP;
             rank[rootP]+=1;
           }
+            count--;
      }
 
      boolean connected(int p, int q){
         return find(p) == find(q);
+     }
+
+     int noOfComponents(){
+        return count;
      }
 
 }
