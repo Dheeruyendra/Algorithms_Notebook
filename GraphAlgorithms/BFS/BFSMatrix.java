@@ -7,41 +7,28 @@ import java.util.Queue;
 import java.util.Set;
 
 public class BFSMatrix {
-  int[] dx = {1, -1, 0, 0};
-  int[] dy = {0, 0, 1, -1};
-  //another implementation using array
-  void bfs(int i, int j, int[][]adjMatrix){
-       Queue<int[]> q = new LinkedList<>();
-       boolean[][] visited = new boolean[adjMatrix.length][adjMatrix[0].length];
-       q.add(new int[]{i, j});
- 
-       while(!q.isEmpty()){
+    int[] dx = { 1, -1, 0, 0 };
+    int[] dy = { 0, 0, 1, -1 };
+
+    // another implementation using array
+    void bfs(int i, int j, int[][] adjMatrix) {
+        Queue<int[]> q = new LinkedList<>();
+        boolean[][] visited = new boolean[adjMatrix.length][adjMatrix[0].length];
+        q.add(new int[] { i, j });
+
+        while (!q.isEmpty()) {
             int[] curr = q.poll();
-            for(int k=0; k<4; k++){
+            for (int k = 0; k < 4; k++) {
                 int nx = dx[k] + curr[0];
                 int ny = dy[k] + curr[1];
 
-                if(isValid(i, j, adjMatrix)){
+                if (isValid(i, j, adjMatrix)) {
                     visited[nx][ny] = true;
-                    
+
                 }
             }
-       }
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+    }
 
     class Pair {
         int x, y;
@@ -52,8 +39,8 @@ public class BFSMatrix {
         }
     }
 
- //   int[] dx = { 1, -1, 0, 0 };
- //   int[] dy = { 0, 0, 1, -1 };
+    // int[] dx = { 1, -1, 0, 0 };
+    // int[] dy = { 0, 0, 1, -1 };
 
     public void bfsTraversal(int i, int j, int[][] adjMatrix) {
         Queue<Pair> q = new LinkedList();

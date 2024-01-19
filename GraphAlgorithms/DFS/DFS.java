@@ -1,4 +1,5 @@
 package GraphAlgorithms.DFS;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashSet;
@@ -6,38 +7,41 @@ import java.util.Set;
 import java.util.List;
 
 public class DFS {
-/* Time Complexity : O(V+E)
- * Space Complexity : O(V) 
- * 
- */
-   
-   //recursion
-    void dfsTraversal(int curr, List<List<Integer>> adjList, boolean[] visited){
-             visited[curr] = true;
+   /*
+    * Time Complexity : O(V+E)
+    * Space Complexity : O(V)
+    * 
+    */
 
-             for(int next : adjList.get(curr)){
-                if(!visited[next]){
-                     dfsTraversal(next, adjList, visited);
-                }
-             }
-    }
+   // recursion
+   void dfsTraversal(int curr, List<List<Integer>> adjList, boolean[] visited) {
+      visited[curr] = true;
 
-    //iterative
-    boolean dfsTraversal(int src, int dest, int n, List<List<Integer>>adjList){
-                    boolean[] visited = new boolean[n];
-                    Deque<Integer> stack = new ArrayDeque<>();
-                    stack.push(src);
+      for (int next : adjList.get(curr)) {
+         if (!visited[next]) {
+            dfsTraversal(next, adjList, visited);
+         }
+      }
+   }
 
-                    while(!stack.isEmpty()){
-                         int node = stack.pop();
-                         visited[node] = true;
+   // iterative
+   boolean dfsTraversal(int src, int dest, int n, List<List<Integer>> adjList) {
+      boolean[] visited = new boolean[n];
+      Deque<Integer> stack = new ArrayDeque<>();
+      stack.push(src);
 
-                         if(node == dest) return true;
-                         
-                         for(int neigh : adjList.get(node)){
-                            if(!visited[neigh]) stack.push(neigh);
-                         }
-                    }
-                 return false;
-    }
+      while (!stack.isEmpty()) {
+         int node = stack.pop();
+         visited[node] = true;
+
+         if (node == dest)
+            return true;
+
+         for (int neigh : adjList.get(node)) {
+            if (!visited[neigh])
+               stack.push(neigh);
+         }
+      }
+      return false;
+   }
 }
