@@ -48,4 +48,5 @@ public class KrushkalsAlgorithm {
            }
         return mst;
     }
+    //List<int[]> edges = new ArrayList<>(); int[] : {u, v, weight}
 }
