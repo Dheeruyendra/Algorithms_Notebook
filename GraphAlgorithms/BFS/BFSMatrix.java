@@ -24,7 +24,7 @@ public class BFSMatrix {
 
                 if (isValid(i, j, adjMatrix)) {
                     visited[nx][ny] = true;
-
+                    q.add(new int[] { nx, ny });
                 }
             }
         }
