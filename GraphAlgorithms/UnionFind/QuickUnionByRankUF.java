@@ -1,4 +1,4 @@
-public class QuickUnionRankUF {
+public class QuickUnionByRankUF {
 /*
         Time Complexity : 
                          Union-Find Constructor =>O(n), 
@@ -11,7 +11,7 @@ public class QuickUnionRankUF {
     int[] root; //root[i] = stores parent of i and if root[i] = i then i is root node   
     int[] rank; //rank[i] = rank of subtree rooted at i(size of tree is rank[i])
     int count;
-    QuickUnionRankUF(int n){
+    QuickUnionByRankUF(int n){
         count = n;
         root = new int[n];
         rank = new int[n];

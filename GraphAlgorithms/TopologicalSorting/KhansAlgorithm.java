@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class KhansAlgorithm {
 
-    List<Integer> topologicalSorting(int nodes, List<List<Integer>> adjList) {
-        int[] inDegree = new int[nodes];
+    List<Integer> topologicalSorting(int numberOfNodes, List<List<Integer>> adjList) {
+        int[] inDegree = new int[numberOfNodes];
         for (List<Integer> edges : adjList) {
             for (int edge : edges) {
                 inDegree[edge] += 1;
@@ -31,7 +31,7 @@ public class KhansAlgorithm {
 
         // If the topological order is not possible because of cycle, return an empty
         // list
-        if (topologicalOrder.size() != nodes) {
+        if (topologicalOrder.size() != numberOfNodes) {
             return new ArrayList<>();
         }
         return topologicalOrder;
