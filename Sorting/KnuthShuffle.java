@@ -1,4 +1,4 @@
-package Sorting;
+package sorting;
 
 public class KnuthShuffle {
     /*
@@ -12,12 +12,26 @@ public class KnuthShuffle {
      *             2. Helps in quicksort for avoiding worst case
      */
 
-    public void shuffle(Comparable[] a) {
+    public static void shuffle(Comparable[] a) {
         int n = a.length;
         for (int i = 0; i < n; i++) {
             int r = uniform(i + 1);
             exch(a, i, r);
         }
+    }
+
+    public static void shuffle(Object[] a){
+         int n = a.length;
+         for(int i=0; i<n; i++){
+            int r = uniform(i+1);
+            exch(a, i, r);
+         }
+    }
+
+    public static void exch(Object[] a, int i, int j){
+          Object swap = a[i];
+          a[i] = a[j];
+          a[j] = swap;
     }
 
     public static void exch(Comparable[] a, int i, int j) {
@@ -26,17 +40,7 @@ public class KnuthShuffle {
         a[j] = swap;
     }
 
-    private int uniform(int n) {
+    private static int uniform(int n) {
         return (int) Math.floor(Math.random() * n);
     }
-
-    public static void main(String[] args) {
-        Integer[] arr = { 1, 2, 3, 4, 5 };
-        KnuthShuffle ks = new KnuthShuffle();
-        ks.shuffle(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-    }
-
 }

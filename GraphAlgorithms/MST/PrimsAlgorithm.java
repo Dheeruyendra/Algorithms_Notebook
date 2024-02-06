@@ -1,4 +1,4 @@
-package GraphAlgorithms.MST;
+package graphAlgorithms.MST;
 
 import java.util.List;
 import java.util.PriorityQueue;

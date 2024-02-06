@@ -1,4 +1,4 @@
-package StacksAndQueues;
+package fundamentals.stacksAndQueues;
 
 import java.lang.Iterable;
 import java.util.Iterator;
@@ -16,11 +16,25 @@ public class StackUsingResizingArray implements Iterable<String> {
     public boolean isEmpty() {
             return N == 0;
     }
+
+    /*
+     *  Add a new item to the top of the stack
+     *  1. If the array is full, create a new array of twice the size, and copy the items
+     *  2. Add the new item to the top of the stack(N keeps track of the index of the top of the stack)
+     */
     public void push(String item) {
         if (N == stack.length) resize(2 * stack.length); // Double size of array when array is full
         stack[N++] = item;
     }
 
+    
+    /*
+     * Remove the item from the top of the stack
+     * 1. Save the item from the top of the stack
+     * 2. Decrement N
+     * 3. Set the item at the top of the stack to null to avoid loitering
+     * 4. If the array is one-quarter full, create a new array of half the size, and copy the items
+     */
     public String pop() {
         if (isEmpty()) throw new RuntimeException("Stack is empty");
         String item = stack[--N];

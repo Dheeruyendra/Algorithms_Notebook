@@ -1,4 +1,4 @@
-package GraphAlgorithms.DFS;
+package graphAlgorithms.DFS;
 /* 
  *  Time Complexity : O(n*m) where n is number of rows and m are number of columns
  *  Space Complexity: O(n*m) 

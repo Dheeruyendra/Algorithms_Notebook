@@ -1,4 +1,6 @@
-package Sorting;
+package sorting;
+
+import java.util.Comparator;
 
 public class Insertion {
 /*
@@ -23,7 +25,13 @@ public class Insertion {
  * 
  */
 
-    public void sort(Comparable[] arr) {
+ /*
+  *  check if the current element is less than the previous element, if yes, swap them
+  *  
+  */
+    private Insertion(){}
+
+    public static void sort(Comparable[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             for (int j = i; j > 0; j--) {
@@ -33,6 +41,16 @@ public class Insertion {
                     break;
             }
         }
+    }
+
+    public static void sort(Object[] arr, Comparator c){
+          int n = arr.length;
+          for(int i=1; i<n; i++){
+            for(int j=i; j > 0; j--){
+                if(less(c, arr[j], arr[j-1]))exch(arr, i, j);
+                else break;
+            }
+          }
     }
 
     public static boolean isSorted(Comparable[] a) {
@@ -47,8 +65,12 @@ public class Insertion {
         return v.compareTo(w) < 0; // if v < w, return true
     }
 
-    public static void exch(Comparable[] a, int i, int j) {
-        Comparable swap = a[i];
+    public static boolean less(Comparator c, Object v, Object w){
+           return c.compare(v, w) < 0;
+    }
+
+    public static void exch(Object[] a, int i, int j) {
+        Object swap = a[i];
         a[i] = a[j];
         a[j] = swap;
     }

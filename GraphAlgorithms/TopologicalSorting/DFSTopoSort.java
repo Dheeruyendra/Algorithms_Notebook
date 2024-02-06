@@ -1,4 +1,4 @@
-package GraphAlgorithms.TopologicalSorting;
+package graphAlgorithms.TopologicalSorting;
 
 import java.util.List;
 import java.util.ArrayList;

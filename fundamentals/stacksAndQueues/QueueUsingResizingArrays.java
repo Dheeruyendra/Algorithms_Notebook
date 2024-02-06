@@ -1,4 +1,4 @@
-package StacksAndQueues;
+package fundamentals.stacksAndQueues;
 import java.lang.Iterable;
 import java.util.Iterator;
 public class QueueUsingResizingArrays<T> implements Iterable<T> {

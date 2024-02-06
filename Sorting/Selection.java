@@ -1,4 +1,6 @@
-package Sorting;
+package sorting;
+
+import java.util.Comparator;
 
 public class Selection {
     /*
@@ -29,12 +31,34 @@ public class Selection {
         }
     }
 
+    public void sort(Object[] a, Comparator c) { // takes object array and comparator as input and sorts it
+        int n = a.length;
+        for (int i = 0; i < n; i++) {
+            int min = i;
+            for (int j = i + 1; j < n; j++) {
+                if (less(c, a[j], a[min]))
+                    min = j; // if current element is less than min, update min
+            }
+            exch(a, i, min);
+        }
+    }
+
+    public static boolean less(Comparator c, Object v, Object w) {
+        return c.compare(v, w) < 0; // if v < w, return true
+    }
+
     public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0; // if v < w, return true
     }
 
     public static void exch(Comparable[] a, int i, int j) {
         Comparable swap = a[i];
+        a[i] = a[j];
+        a[j] = swap;
+    }
+
+    public static void exch(Object[] a, int i, int j) {
+        Object swap = a[i];
         a[i] = a[j];
         a[j] = swap;
     }

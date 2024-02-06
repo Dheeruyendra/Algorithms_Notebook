@@ -1,3 +1,4 @@
+package graphAlgorithms.UnionFind;
 public class QuickUnionByRankUF {
 /*
         Time Complexity : 

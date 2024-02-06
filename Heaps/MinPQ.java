@@ -1,4 +1,4 @@
-package Heaps;
+package heaps;
 
 public class MinPQ<T> implements Iterable<T> {
     /*

@@ -1,4 +1,6 @@
-package Sorting;
+package sorting;
+
+import java.util.Comparator;
 
 public class Quick {
     /*
@@ -13,8 +15,7 @@ public class Quick {
 
     public void sort(Comparable[] a) {
         // shuffle needed for performance guarantee
-        KnuthShuffle ks = new KnuthShuffle();
-        ks.shuffle(a);
+        KnuthShuffle.shuffle(a);
         sort(a, 0, a.length - 1);
     }
 
@@ -29,11 +30,11 @@ public class Quick {
     private int partition(Comparable[] arr, int lo, int hi) {
         int i = lo, j = hi + 1; // left and right scan indices
         while (true) {
-            while (less(arr[++i], arr[lo])) // find item on left to swap
+            while (less(arr[++i], arr[lo])) // find item on left to swap i.e. find item greater than partitioning item (left part of array is less than partitioning item)
                 if (i == hi)
                     break; // if i reaches end, break
 
-            while (less(arr[lo], arr[--j])) // find item on right to swap
+            while (less(arr[lo], arr[--j])) // find item on right to swap i.e. find item less than partitioning item (right part of array is greater than partitioning item)
                 if (j == lo)
                     break; // if j reaches start, break i.e. actually this is redundant
 
@@ -55,7 +56,4 @@ public class Quick {
         a[i] = a[j];
         a[j] = swap;
     }
-
-    //we can also implement merge sort with comparator i.e. for custom objects with custom comparator(alternate order of sorting) 
-    //similar to merge sort
 }

@@ -1,4 +1,4 @@
-package GraphAlgorithms.MST;
+package graphAlgorithms.MST;
 
 import java.util.Collections;
 import java.util.List;

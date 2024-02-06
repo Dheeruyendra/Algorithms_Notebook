@@ -1,4 +1,4 @@
-package GraphAlgorithms.BFS;
+package graphAlgorithms.BFS;
 
 import java.util.HashSet;
 import java.util.LinkedList;

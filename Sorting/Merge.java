@@ -1,4 +1,4 @@
-package Sorting;
+package sorting;
 
 import java.util.Comparator;
 
@@ -33,6 +33,16 @@ public class Merge {
         merge(arr, aux, lo, mid, hi);
     }
 
+
+/*
+ *  Merge Logic Explanation:
+ *  1. Copy the array to an auxiliary array
+ *  2. Take two pointers i and j, one for each half of the array
+ *  3. Compare the elements at i and j and copy the smaller one to the original array
+ *  4. Increment the pointer of the array from which the element was copied
+ *  5. Repeat until both halves are exhausted
+ * 
+ */
     void merge(Comparable[] arr, Comparable[] aux, int lo, int mid, int hi) {
         for (int k = lo; k <= hi; k++) {
             aux[k] = arr[k];
@@ -40,11 +50,11 @@ public class Merge {
 
         int i = lo, j = mid + 1;
         for (int k = 0; k <= hi; k++) {
-            if (i > mid)
+            if (i > mid) // if left half is exhausted
                 arr[k] = aux[j++];
-            else if (j > hi)
+            else if (j > hi) // if right half is exhausted
                 arr[k] = aux[i++];
-            else if (less(aux[j], aux[i]))
+            else if (less(aux[j], aux[i])) // if element at j is less than element at i{this will also help in counting inversions [noOfInversions += mid - i + 1]}
                 arr[k] = aux[j++];
             else
                 arr[k] = aux[i++];
@@ -80,19 +90,19 @@ public class Merge {
                 a[k] = aux[j++];
             else if (j > hi)
                 a[k] = aux[i++];
-            else if (less(aux[j], aux[i], c))
+            else if (less(c, aux[j], aux[i]))
                 a[k] = aux[j++];
             else
                 a[k] = aux[i++];
         }
     }
 
+
     public static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0; // if v < w, return true
     }
 
-    public static boolean less(Object v, Object w, Comparator c) {
+    public static boolean less(Comparator c, Object v, Object w) {
         return c.compare(v, w) < 0; // if v < w, return true
     }
-
 }

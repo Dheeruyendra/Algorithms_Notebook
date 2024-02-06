@@ -1,4 +1,4 @@
-package GraphAlgorithms.ShortestPath;
+package graphAlgorithms.ShortestPath;
 
 import java.util.List;
 import java.util.PriorityQueue;

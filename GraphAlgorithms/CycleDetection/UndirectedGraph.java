@@ -1,4 +1,4 @@
-package GraphAlgorithms.CycleDetection;
+package graphAlgorithms.CycleDetection;
 
 import java.util.List;
 

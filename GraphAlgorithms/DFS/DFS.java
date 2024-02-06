@@ -1,4 +1,4 @@
-package GraphAlgorithms.DFS;
+package graphAlgorithms.DFS;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
